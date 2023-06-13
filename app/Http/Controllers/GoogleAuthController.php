@@ -32,6 +32,6 @@ class GoogleAuthController extends Controller
             $request->session()->put('google_access_token', $client->getAccessToken());
         }
 
-        return redirect('/'); // Redirect to your desired page after authentication
+        return redirect('/'); 
     }
 }

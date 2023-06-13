@@ -20,5 +20,5 @@ Route::get('/', function () {
 });
 
 Route::get('/auth/google', [GoogleAuthController::class,'redirectToGoogle'])->name('google.auth');
-Route::get('/callback', [GoogleAuthController::class,'handleGoogleCallback']);
+Route::get('/auth/google/callback', [GoogleAuthController::class,'handleGoogleCallback']);
 Route::get('/create-meeting', [MeetingController::class,'create'])->name('meeting.create');

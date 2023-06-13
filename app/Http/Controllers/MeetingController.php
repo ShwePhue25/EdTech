@@ -13,6 +13,9 @@ class MeetingController extends Controller
         $client = new Google_Client();
         $client->setAuthConfig('client_secrets.json');
         $client->addScope(Google_Service_Calendar::CALENDAR_EVENTS);
+        $token = $request->session()->get('google_access_token');
+        // dd($token);
+        // echo setAccessToken($request->session()->get('google_access_token'));
         $client->setAccessToken($request->session()->get('google_access_token'));
 
         if ($client->isAccessTokenExpired()) {
@@ -27,20 +30,19 @@ class MeetingController extends Controller
             'summary' => 'Online Meeting',
             'description' => 'This is an online meeting.',
             'start' => [
-                'dateTime' => '2023-06-01T10:00:00',
-                'timeZone' => 'Your-Time-Zone',
+                'dateTime' => '2023-06-12T10:00:00',
+                'timeZone' => 'Asia/Yangon',
             ],
             'end' => [
-                'dateTime' => '2023-06-01T11:00:00',
-                'timeZone' => 'Your-Time-Zone',
+                'dateTime' => '2023-06-12T11:00:00',
+                'timeZone' => 'Asia/Yangon',
             ],
         ]);
 
-        $calendarId = 'primary'; // Use 'primary' for the default calendar
+        $calendarId = 'primary'; 
 
         $event = $service->events->insert($calendarId, $event);
 
-        // Redirect or return response as per your requirements
         return redirect('/')->with('success', 'Meeting created successfully.');
     }
 }

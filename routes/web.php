@@ -18,15 +18,17 @@ use App\Http\Controllers\GoogleAuthController;
 /**create google meeting */
 Route::get('/auth/google', [GoogleAuthController::class,'redirectToGoogle'])->name('google.auth');
 Route::get('/auth/google/callback', [GoogleAuthController::class,'handleGoogleCallback']);
-Route::get('/meeting/create', [MeetingController::class,'create'])->name('meeting.create');
+Route::post('/meeting/create', [MeetingController::class,'create'])->name('meeting.create');
 Route::get('/meeting', function(){
     return view('meeting');
 })->name('view-meeting');
+Route::get('/success', function(){
+    return view('success');
+});
 //Route::post('google/event', [MeetingController::class,'createEvent']);
 
 // Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 /* Google Social Login */
 // Route::get('auth/google', [GoogleController::class,'redirect'])->name('google.auth');
@@ -39,3 +41,7 @@ Route::get('/', function () {
 // Route::get('/auth/google', [GoogleAuthController::class,'redirectToGoogle'])->name('google.auth');
 // Route::get('/auth/google/callback', [GoogleAuthController::class,'handleGoogleCallback']);
 // Route::get('/create-meeting', [MeetingController::class,'create'])->name('meeting.create');
+
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

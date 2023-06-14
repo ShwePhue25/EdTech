@@ -45,7 +45,7 @@
                     </svg>
                 </div>
                 <a href="{{ route('google.auth') }}">Authenticate with Google</a>
-                <a href="{{ route('meeting.create') }}">Create Meeting</a>
+                <a href="{{ route('view-meeting') }}">Create Meeting</a>
 
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
                     <div class="grid grid-cols-1 md:grid-cols-2">

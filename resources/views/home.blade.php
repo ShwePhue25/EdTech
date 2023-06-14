@@ -18,6 +18,8 @@
                 </div>
             </div>
         </div>
+     <a href="{{ route('meeting.create') }}">Create Meeting</a>
     </div>
+
 </div>
 @endsection
